@@ -170,8 +170,8 @@ namespace PathFinding
 
             Queue<QueueNode> queue = new Queue<QueueNode>();
 
-            QueueNode s = new QueueNode(sourceRow, sourceCol, new List<Tuple<int, int>>());
-            queue.Enqueue(s);
+            QueueNode node = new QueueNode(sourceRow, sourceCol, new List<Tuple<int, int>>());
+            queue.Enqueue(node);
 
             while (queue.Count != 0)
             {
