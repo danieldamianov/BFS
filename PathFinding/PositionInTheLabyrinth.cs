@@ -4,6 +4,9 @@ using System.Windows.Forms;
 
 namespace PathFinding
 {
+    /// <summary>
+    /// Class that extends the button to have some additional properties related to the board.
+    /// </summary>
     public class PositionInTheLabyrinth : Button
     {
         public PositionInTheLabyrinth(int row, int column) : base()

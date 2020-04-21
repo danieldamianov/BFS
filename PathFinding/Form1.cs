@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace PathFinding
 {
-
     public partial class Form1 : Form
     {
         /// <summary>
@@ -107,7 +106,7 @@ namespace PathFinding
         }
 
         /// <summary>
-        /// Finds the colsest path and displays it to the user.
+        /// Finds the closest path and displays it to the user.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -162,10 +161,12 @@ namespace PathFinding
         /// <returns></returns>
         private List<Tuple<int, int>> FindPath(int sourceRow, int sourceCol, int destRow, int destCol)
         {
+            // Checks if the field is a wall.
             if (buttons[sourceRow, sourceCol].BackColor == Color.Black ||
                 buttons[destRow, destCol].BackColor == Color.Black)
                 return null;
 
+            // Marks the field as visited (not to be checked again)
             this.buttons[sourceRow, sourceCol].HasBeenVisited = true;
 
             Queue<QueueNode> queue = new Queue<QueueNode>();
@@ -173,10 +174,12 @@ namespace PathFinding
             QueueNode node = new QueueNode(sourceRow, sourceCol, new List<Tuple<int, int>>());
             queue.Enqueue(node);
 
+            // Investigating the field
             while (queue.Count != 0)
             {
                 QueueNode curr = queue.Peek();
 
+                // Checks if the target field is reached
                 if (curr.Row == destRow && curr.Column == destCol)
                     return curr.PathToSell;
 
@@ -190,6 +193,7 @@ namespace PathFinding
                 int row;
                 int col;
 
+                // Sets for investigation by adding to the queue the left, right, up , down field of the current field.
                 for (int i = 0; i < 4; i++)
                 {
                     row = curr.Row + rowChange[i];
