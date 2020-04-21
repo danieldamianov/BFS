@@ -40,7 +40,6 @@
             this.labyrinthPanel.Name = "labyrinthPanel";
             this.labyrinthPanel.Size = new System.Drawing.Size(1200, 600);
             this.labyrinthPanel.TabIndex = 0;
-            this.labyrinthPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.labyrinthPanel_Paint);
             // 
             // Label
             // 
@@ -50,7 +49,6 @@
             this.Label.Size = new System.Drawing.Size(1156, 73);
             this.Label.TabIndex = 1;
             this.Label.Text = "label1";
-            this.Label.Click += new System.EventHandler(this.Label_Click);
             // 
             // FindPathButton
             // 
